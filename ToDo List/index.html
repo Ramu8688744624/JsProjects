@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-linear-65 from-purple-500 to-pink-500 h-14">
+    <div class="flex justify-center items-center" style="height: 100vh;">
+    <div class="bg-blue-100 rounded" style="height: 500px;width: 500px;">
+        <h1 class="font-bold text-2xl text-center p-4 underline">TO-DO List</h1>
+        <div class="flex pl-8 gap-2">
+            <input type="text" name="addtask" id="input-box" placeholder="  add your tasks here" class="border rounded ">
+            <button class="bg-blue-400 px-3 py-1 rounded text-xl hover:bg-blue-600 cursor-pointer" onclick="addTask()">add</button>
+        </div>
+        <ul class="pl-8 py-4 flex gap-4 flex-col" id="list-container">
+            <!-- <li class="text-lg font-semibold line-through flex gap-2 align-center"><img src="./images/check.webp" alt="check" style="height:28px;">Task1</li>
+            <li class="text-lg font-semibold line-through flex gap-2 align-center"><img src="./images/check.webp" alt="check" style="height:28px;">Task2</li>
+            <li class="text-lg font-semibold line-through flex gap-2 align-center"><img src="./images/check.webp" alt="check" style="height:28px;">Task3</li> -->
+        </ul>
+    </div>
+</div>
+<script src="index.js"></script>
+</body>
+
+</html>
