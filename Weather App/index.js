@@ -17,19 +17,34 @@ if(city){
 
 async function getData(city) {
     const apiKey="dc6f259fc990d1e2485706724ebc9b13";
-    const response=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
-    const data=await response.json(); 
-    return data;
+    try{
+        const response=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+        const data=await response.json(); 
+        return data;
+    }catch(error){
+        console.log("Something Went Wrong!");
+        return null;
+    }
+    
+   
 }
 
 function updateWeatherUI(data) {
+    if(data && data.cod === 200){
     const {main,wind,name}=data;
     const tempratureValue=main.temp;
     const windSpeed=wind.speed;
     const humidity=main.humidity;
-
-    temperature.textContent=`${Math.round(tempratureValue)}°C`
+    
+        temperature.textContent=`${Math.round(tempratureValue)}°C`
     cityName.textContent=name;
     humidityValue.textContent=`${humidity}%`;
     windSpeedValue.textContent=`${windSpeed}km/h`;
+    }else{
+        cityName.textContent = "City not found!";
+        temperature.textContent = '';
+        humidityValue.textContent = '';
+        windSpeedValue.textContent = '';
+    }
+    
 }
